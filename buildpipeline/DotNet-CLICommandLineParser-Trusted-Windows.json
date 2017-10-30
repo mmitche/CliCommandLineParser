@@ -1,0 +1,178 @@
+{
+  "build": [
+    {
+      "enabled": true,
+      "continueOnError": false,
+      "alwaysRun": false,
+      "displayName": "PowerShell Script",
+      "timeoutInMinutes": 0,
+      "refName": "PowerShell_1",
+      "task": {
+        "id": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+        "versionSpec": "1.*",
+        "definitionType": "task"
+      },
+      "inputs": {
+        "scriptType": "filePath",
+        "scriptName": "build.ps1",
+        "arguments": "/t:BuildAll",
+        "inlineScript": "# You can write your powershell scripts inline here. \n# You can also pass predefined and custom variables to this scripts using arguments\n\n Write-Host \"Hello World\"",
+        "workingFolder": "",
+        "failOnStandardError": "true"
+      }
+    },
+    {
+      "enabled": true,
+      "continueOnError": false,
+      "alwaysRun": false,
+      "displayName": "PowerShell Script",
+      "timeoutInMinutes": 0,
+      "refName": "PowerShell_2",
+      "task": {
+        "id": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+        "versionSpec": "1.*",
+        "definitionType": "task"
+      },
+      "inputs": {
+        "scriptType": "filePath",
+        "scriptName": "build.ps1",
+        "arguments": "/t:Pack",
+        "inlineScript": "# You can write your powershell scripts inline here. \n# You can also pass predefined and custom variables to this scripts using arguments\n\n Write-Host \"Hello World\"",
+        "workingFolder": "",
+        "failOnStandardError": "true"
+      }
+    },
+    {
+      "enabled": true,
+      "continueOnError": false,
+      "alwaysRun": false,
+      "displayName": "NuGet Publisher ",
+      "timeoutInMinutes": 0,
+      "refName": "NuGetPublisher_3",
+      "task": {
+        "id": "333b11bd-d341-40d9-afcf-b32d5ce6f25b",
+        "versionSpec": "0.*",
+        "definitionType": "task"
+      },
+      "inputs": {
+        "searchPattern": "**/*.nupkg;-:**/packages/**/*.nupkg;-:**/*.symbols.nupkg;-:**/.nuget/**/*.nupkg;-:**/.dotnet/**/*.nupkg",
+        "nuGetFeedType": "external",
+        "connectedServiceName": "e3b269d4-5b99-4a32-a6ff-2c2feb920051",
+        "feedName": "",
+        "nuGetAdditionalArgs": "",
+        "verbosity": "-",
+        "nuGetVersion": "3.3.0",
+        "nuGetPath": "",
+        "continueOnEmptyNupkgMatch": "false"
+      }
+    }
+  ],
+  "options": [
+    {
+      "enabled": false,
+      "definition": { "id": "a9db38f9-9fdc-478c-b0f9-464221e58316" },
+      "inputs": {
+        "workItemType": "234347",
+        "assignToRequestor": "true",
+        "additionalFields": "{}"
+      }
+    },
+    {
+      "enabled": false,
+      "definition": { "id": "57578776-4c22-4526-aeb0-86b6da17ee9c" },
+      "inputs": { "additionalFields": "{}" }
+    }
+  ],
+  "triggers": [
+    {
+      "branchFilters": [ "+master" ],
+      "pathFilters": [],
+      "batchChanges": true,
+      "maxConcurrentBuildsPerBranch": 1,
+      "triggerType": "continuousIntegration"
+    }
+  ],
+  "variables": {
+    "system.debug": {
+      "value": "false",
+      "allowOverride": true
+    }
+  },
+  "retentionRules": [
+    {
+      "branches": [ "+refs/heads/*" ],
+      "artifacts": [],
+      "artifactTypesToDelete": [ "FilePath", "SymbolStore" ],
+      "daysToKeep": 10,
+      "minimumToKeep": 1,
+      "deleteBuildRecord": true,
+      "deleteTestResults": true
+    }
+  ],
+  "_links": {
+    "self": { "href": "https://devdiv.visualstudio.com/0bdbc590-a062-4c3f-b0f6-9383f67865ee/_apis/build/Definitions/5619" },
+    "web": { "href": "https://devdiv.visualstudio.com/_permalink/_build/index?collectionId=011b8bdf-6d56-4f87-be0d-0092136884d9&projectId=0bdbc590-a062-4c3f-b0f6-9383f67865ee&definitionId=5619" },
+    "editor": { "href": "https://devdiv.visualstudio.com/_permalink/_build/definitionEditor?collectionId=011b8bdf-6d56-4f87-be0d-0092136884d9&projectId=0bdbc590-a062-4c3f-b0f6-9383f67865ee&definitionId=5619" },
+    "badge": { "href": "https://devdiv.visualstudio.com/_apis/public/build/definitions/0bdbc590-a062-4c3f-b0f6-9383f67865ee/5619/badge" }
+  },
+  "jobAuthorizationScope": "projectCollection",
+  "jobTimeoutInMinutes": 60,
+  "jobCancelTimeoutInMinutes": 5,
+  "badgeEnabled": true,
+  "repository": {
+    "properties": {
+      "connectedServiceId": "f4c31735-42d2-4c3a-bc47-7ac06fd0dccc",
+      "apiUrl": "https://api.github.com/repos/dotnet/CliCommandLineParser",
+      "branchesUrl": "https://api.github.com/repos/dotnet/CliCommandLineParser/branches",
+      "cloneUrl": "https://github.com/dotnet/CliCommandLineParser.git",
+      "refsUrl": "https://api.github.com/repos/dotnet/CliCommandLineParser/git/refs",
+      "gitLfsSupport": "false",
+      "skipSyncSource": "false",
+      "fetchDepth": "0",
+      "cleanOptions": "3"
+    },
+    "id": "https://github.com/dotnet/CliCommandLineParser.git",
+    "type": "GitHub",
+    "name": "dotnet/CliCommandLineParser",
+    "url": "https://github.com/dotnet/CliCommandLineParser.git",
+    "defaultBranch": "master",
+    "clean": "true",
+    "checkoutSubmodules": false
+  },
+  "processParameters": {},
+  "quality": "definition",
+  "authoredBy": {
+    "id": "00000002-0000-8888-8000-000000000000",
+    "displayName": "Microsoft.VisualStudio.Services.TFS",
+    "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+    "url": "https://app.vssps.visualstudio.com/Aa44b2c06-f247-425c-8464-4a0676af910a/_apis/Identities/00000002-0000-8888-8000-000000000000",
+    "imageUrl": "https://devdiv.visualstudio.com/_api/_common/identityImage?id=00000002-0000-8888-8000-000000000000"
+  },
+  "drafts": [],
+  "queue": {
+    "id": 36,
+    "name": "DotNet-Build",
+    "pool": {
+      "id": 39,
+      "name": "DotNet-Build"
+    }
+  },
+  "id": 5619,
+  "name": "CliCommandLineParser [Windows]",
+  "url": "https://devdiv.visualstudio.com/0bdbc590-a062-4c3f-b0f6-9383f67865ee/_apis/build/Definitions/5619",
+  "uri": "vstfs:///Build/Definition/5619",
+  "path": "\\DotNet\\CliCommandLineParser\\master",
+  "type": "build",
+  "queueStatus": "enabled",
+  "revision": 13,
+  "createdDate": "2017-06-28T14:08:46.197Z",
+  "project": {
+    "id": "0bdbc590-a062-4c3f-b0f6-9383f67865ee",
+    "name": "DevDiv",
+    "description": "Visual Studio and DevDiv team project for git source code repositories.  Work items will be added for Adams, Dev14 work items are tracked in vstfdevdiv.  ",
+    "url": "https://devdiv.visualstudio.com/_apis/projects/0bdbc590-a062-4c3f-b0f6-9383f67865ee",
+    "state": "wellFormed",
+    "revision": 418098291,
+    "visibility": "organization"
+  }
+}

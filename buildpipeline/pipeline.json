@@ -1,0 +1,27 @@
+{
+  "Repository": "clicommandlineparser",
+  "Definitions": {
+    "Path": ".",
+    "Type": "VSTS",
+    "BaseUrl": "https://devdiv.visualstudio.com/DefaultCollection"
+  },
+  "Pipelines": [
+    {
+      "Name": "Trusted-Windows",
+      "Parameters": {
+        "TreatWarningsAsErrors": "false"
+      },
+      "Definitions": [{
+          "Name": "DotNet-CoreFx-Trusted-Linux",
+          "Parameters": {},
+          "ReportingParameters": {
+            "OperatingSystem": "Windows",
+            "Platform": "x64",
+            "Type": "build/product/",
+            "ConfigurationGroup": "Release"
+          }
+        }
+      ]
+    }
+  ]
+}
